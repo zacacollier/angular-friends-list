@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" ng-app="FriendsList">
+<head>
+  <meta charset="UTF-8">
+  <title>My Friends</title>
+  <link rel="stylesheet" type="text/css" href="./bootstrap.min.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="row text-center">
+      <div ng-controller="SearchController as search">
+        <button>Find Friends</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Friends (list form) -->
+    <div class="row"
+      ng-show="fc.friends"
+      ng-controller="FriendsController as fc"
+    >
+      <h1 ng-hide="fc.friends">No Friends :(</h1>
+      <ul class="list-group"
+        ng-repeat="friend in fc.friends"
+        >
+        <li class="list-group-item">
+          <h3>{{friend.name}}</h3>
+          <em>{{friend.occupation}}</em>
+        </li>
+      <!-- Tabs -->
+      <li ng-controller="PanelController as panel">
+        <ul class="nav nav-pills" >
+          <li ng-class="{ active: selected === 'description' }">
+            <a ng-click="panel.selectInfo('description')">Description</a>
+          </li>
+          <li ng-class="{ active: selected === 'trivia' }">
+            <a ng-click="panel.selectInfo('trivia')">Trivia</a>
+          </li>
+          <li ng-class="{ active: selected === 'nemesis' }">
+            <a ng-click="panel.selectInfo('nemesis')">Nemesis</a>
+          </li>
+        </ul>
+        <div class="panel" ng-show="panel.isSelected('description')">
+          <h4>Description</h4>
+          <p>{{friend.info.description}}</p>
+        </div>
+        <div class="panel" ng-show="panel.isSelected('trivia')">
+          <h4>Trivia</h4>
+          <p>{{friend.info.trivia}}</p>
+        </div>
+        <div class="panel" ng-show="panel.isSelected('nemesis')">
+          <h4>Nemesis</h4>
+          <p>{{friend.info.nemesis}}</p>
+        </div>
+      </li>
+      <!-- End Tabs -->
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript" src="./angular.min.js"></script>
+  <script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
