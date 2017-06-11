@@ -23,36 +23,47 @@
       <ul class="list-group"
         ng-repeat="friend in fc.friends"
         >
+      <!-- Info -->
         <li class="list-group-item">
           <h3>{{friend.name}}</h3>
           <em>{{friend.occupation}}</em>
         </li>
       <!-- Tabs -->
-      <li ng-controller="PanelController as panel">
-        <ul class="nav nav-pills" >
-          <li ng-class="{ active: selected === 'description' }">
-            <a ng-click="panel.selectInfo('description')">Description</a>
-          </li>
-          <li ng-class="{ active: selected === 'trivia' }">
-            <a ng-click="panel.selectInfo('trivia')">Trivia</a>
-          </li>
-          <li ng-class="{ active: selected === 'nemesis' }">
-            <a ng-click="panel.selectInfo('nemesis')">Nemesis</a>
-          </li>
-        </ul>
-        <div class="panel" ng-show="panel.isSelected('description')">
-          <h4>Description</h4>
-          <p>{{friend.info.description}}</p>
-        </div>
-        <div class="panel" ng-show="panel.isSelected('trivia')">
-          <h4>Trivia</h4>
-          <p>{{friend.info.trivia}}</p>
-        </div>
-        <div class="panel" ng-show="panel.isSelected('nemesis')">
-          <h4>Nemesis</h4>
-          <p>{{friend.info.nemesis}}</p>
-        </div>
-      </li>
+        <li ng-controller="PanelController as panel">
+          <ul class="nav nav-pills" >
+            <li ng-class="{ active: selected === 'description' }">
+              <a ng-click="panel.selectInfo('description')">Description</a>
+            </li>
+            <li ng-class="{ active: selected === 'trivia' }">
+              <a ng-click="panel.selectInfo('trivia')">Trivia</a>
+            </li>
+            <li ng-class="{ active: selected === 'nemesis' }">
+              <a ng-click="panel.selectInfo('nemesis')">Nemesis</a>
+            </li>
+            <li ng-class="{ active: selected === 'wallPosts' }">
+              <a ng-click="panel.selectInfo('wallPosts')">Wall</a>
+            </li>
+          </ul>
+          <div class="panel" ng-show="panel.isSelected('description')">
+            <h4>Description</h4>
+            <p>{{friend.info.description}}</p>
+          </div>
+          <div class="panel" ng-show="panel.isSelected('trivia')">
+            <h4>Trivia</h4>
+            <p>{{friend.info.trivia}}</p>
+          </div>
+          <div class="panel" ng-show="panel.isSelected('nemesis')">
+            <h4>Nemesis</h4>
+            <p>{{friend.info.nemesis}}</p>
+          </div>
+          <div class="panel" ng-show="panel.isSelected('wallPosts')">
+            <h4>Wall</h4>
+            <blockquote ng-repeat="post in friend.info.wallPosts">
+              {{post.body}}
+              <cite>- {{post.author}}</cite>
+            </blockquote>
+          </div>
+        </li>
       <!-- End Tabs -->
       </ul>
     </div>

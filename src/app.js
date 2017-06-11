@@ -9,8 +9,13 @@
       info: {
         description: 'Kind of an asshole',
         trivia: 'Once dated a supermodel',
-        nemesis: 'Newman'
-      }
+        nemesis: 'Newman',
+        wallPosts: [{
+          id: 1,
+          author: 'Bania',
+          body: 'The best, Jerry, the best!'
+        }]
+      },
     },
     {
       id: 2,
@@ -19,8 +24,13 @@
       info: {
         description: 'Pathological Liar',
         trivia: 'Had a short-lived career as a hand model.',
-        nemesis: 'His mother'
-      }
+        nemesis: 'His mother',
+        wallPosts: [{
+          id: 1,
+          author: 'Frank C.',
+          body: 'It\'s time for the airing of grievances!'
+        }]
+      },
     },
     {
       id: 3,
@@ -29,18 +39,28 @@
       info: {
         description: 'Tragic Narcissist',
         trivia: 'Got drunk at a wedding in India once.',
-        nemesis: 'Her neighbor\'s dog.'
+        nemesis: 'Her neighbor\'s dog.',
+        wallPosts: [{
+          id: 1,
+          author: 'Puddy',
+          body: 'Yeah that\'s right.'
+        }]
       }
     },
     {
       id: 4,
       name: 'Cosmo Kramer',
-      occupation: 'unknown',
+      occupation: '(unknown)',
       info: {
         description: 'Quintessential 90s Hipster',
         trivia: 'Prefers Jockeys',
-        nemesis: 'The librarian.'
-      }
+        nemesis: 'The librarian.',
+        wallPosts: [{
+          id: 1,
+          author: 'Jackie Chiles',
+          body: 'A maestro tell you to put a balm on?!'
+        }]
+      },
     },
   ];
   app.controller('FriendsController', function () {
