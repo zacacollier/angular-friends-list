@@ -56,13 +56,34 @@
             <h4>Nemesis</h4>
             <p>{{friend.info.nemesis}}</p>
           </div>
+          <!-- Add post form -->
           <div class="panel" ng-show="panel.isSelected('wallPosts')">
-            <h4>Wall</h4>
-            <blockquote ng-repeat="post in friend.info.wallPosts">
-              {{post.body}}
-              <cite>- {{post.author}}</cite>
-            </blockquote>
+              <h4>Wall</h4>
+              <blockquote ng-repeat="post in friend.info.wallPosts">
+                {{post.body}}
+                <br>
+                <cite>- {{post.author}}</cite>
+              </blockquote>
           </div>
+            <form action=""
+                  ng-controller="PostController as postCtrl"
+                  ng-submit="postCtrl.addPost(friend)"
+                  ng-show="panel.isSelected('wallPosts')"
+              >
+              <blockquote ng-show="postCtrl.post.body">
+                {{postCtrl.post.body}}
+                <br>
+                <cite>- {{postCtrl.post.author}}</cite>
+              </blockquote>
+              <div>
+                <label>Comment: </label>
+                <textarea ng-model="postCtrl.post.body"></textarea>
+              </div>
+              <label>From: </label>
+              <input ng-model="postCtrl.post.author" type="text" />
+              <input type="submit" value="Add Comment" />
+            </form>
+          <!-- End add post form -->
         </li>
       <!-- End Tabs -->
       </ul>

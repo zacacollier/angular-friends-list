@@ -78,6 +78,16 @@
       return this.info === selected;
     };
   });
+  app.controller('PostController', function ($scope) {
+    this.post = {};
+    this.addPost = function(friend) {
+      const selectedFriend = myFriends[friend.id];
+      selectedFriend.info.wallPosts.push(this.post);
+      // eslint-disable-next-line
+      console.log(selectedFriend.info.wallPosts);
+      this.post = {};
+    };
+  });
   app.controller('SearchController', function () {
     return;
   });
